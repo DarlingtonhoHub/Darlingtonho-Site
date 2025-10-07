@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tech Bloom — Modern Tech Landing</title>
+  <meta name="description" content="Light-pink themed responsive tech site — hero, features, interactive cards, search and theme toggle." />
+  <style>
+    :root{
+      --bg-1: #fff6fb; /* very light pink */
+      --bg-2: #fdeef8; /* soft pink gradient */
+      --card: #ffffff;
+      --muted:#6b7280;
+      --accent1:#ff6bcb; /* vivid pink */
+      --accent2:#6b5bff; /* violet */
+      --glass: rgba(255,255,255,0.6);
+      --radius:14px;
+      --max-width:1100px;
+      --ff-sans: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      --shadow: 0 8px 30px rgba(107,112,128,0.12);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family:var(--ff-sans); background:linear-gradient(180deg,var(--bg-1),var(--bg-2)); color:#111827; -webkit-font-smoothing:antialiased; line-height:1.45; display:flex; justify-content:center; padding:28px 14px;
+    }
+
+    .site{width:100%; max-width:var(--max-width);} 
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:26px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:52px; height:52px; border-radius:12px; background:linear-gradient(135deg,var(--accent1),var(--accent2)); display:inline-grid; place-items:center; font-weight:800; color:white; font-size:1.1rem}
+    h1{font-size:1rem; margin:0}
+    .nav{display:flex; gap:10px; align-items:center}
+    .nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:8px 12px; border-radius:10px}
+    .nav a:hover{color:inherit; background:var(--glass)}
+
+    .hero{padding:28px; border-radius:var(--radius); display:grid; grid-template-columns:1fr 340px; gap:20px; align-items:center; background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6)); box-shadow:var(--shadow)}
+    .hero-left h2{font-size:2rem; margin:0 0 8px; letter-spacing:-0.5px}
+    .kicker{display:inline-block; background:linear-gradient(90deg, rgba(255,107,203,0.12), rgba(107,91,255,0.08)); color:var(--accent1); padding:6px 10px; border-radius:999px; font-weight:700; font-size:.85rem}
+    .hero-left p{color:var(--muted); margin:10px 0 18px}
+    .cta-row{display:flex; gap:12px; align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:white; padding:10px 14px; border-radius:12px; border:none; cursor:pointer; font-weight:700}
+    .ghost{background:transparent; color:var(--muted); border:1px solid rgba(17,24,39,0.04); padding:10px 12px; border-radius:12px}
+
+    .hero-right{display:flex; flex-direction:column; gap:12px}
+    .stat{background:var(--card); padding:14px; border-radius:12px; box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .stat strong{display:block; font-size:1.2rem}
+
+    .controls{display:flex; gap:12px; margin:20px 0; flex-wrap:wrap}
+    .search{flex:1; min-width:220px; display:flex; gap:8px; align-items:center; background:var(--card); padding:8px; border-radius:12px; box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .search input{background:transparent; border:none; outline:none; color:inherit; flex:1; padding:6px}
+    .filter{background:var(--card); padding:8px 10px; border-radius:12px; display:flex; gap:8px; align-items:center}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); padding:16px; border-radius:12px; border:1px solid rgba(16,24,40,0.02); transition:transform .25s ease, box-shadow .25s; cursor:pointer; box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(16,24,40,0.08)}
+    .card h3{margin:0 0 8px}
+    .badges{display:flex; gap:8px; flex-wrap:wrap}
+    .badge{font-size:.78rem; padding:6px 8px; border-radius:999px; background:linear-gradient(90deg, rgba(107,91,255,0.12), rgba(255,107,203,0.08)); color:var(--accent2); font-weight:700}
+
+    /* right aligned short border style */
+    .short-hr{width:35%; border-top:3px solid rgba(255,107,203,0.6); margin-left:auto; border-radius:2px}
+
+    /* Slanted-left text class (not italic) */
+    .slant-left{display:inline-block; transform:skew(-10deg);}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      body{padding:20px 10px}
+      .grid{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+
+    footer{margin-top:22px; color:var(--muted); font-size:.95rem; text-align:center}
+
+    .pulse{animation:pulse 2.2s infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">D25</div>
+        <div>
+          <h1>Darlingtonho25</h1>
+          <div style="color:var(--muted); font-size:0.9rem">Where ideas blossom — tutorials & reviews</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#">Home</a>q   
+        <a href="#features">Features</a>
+        <a href="#articles">Articles</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="ghost">Toggle Theme</button>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="hero">
+      <div class="hero-left">
+        <span class="kicker">New</span>
+        <h2>Design, Build & Ship Modern Tech</h2>
+        <p class="muted">Fresh guides on frontend, backend, security and AI. Clean, responsive, and crafted with a light-pink aesthetic.</p>
+
+        <div class="cta-row">
+          <button class="btn" id="openModal">Watch Intro</button>
+          <button class="ghost">Get Started</button>
+        </div>
+
+        <div class="controls">
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <input id="searchInput" placeholder="Search topics, e.g., AI, security..." aria-label="Search articles" />
+          </div>
+
+          <div class="filter">
+            <label class="muted">Category</label>
+            <select id="categoryFilter" style="background:transparent;border:none;color:inherit;outline:none">
+              <option value="all">All</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="security">Security</option>
+              <option value="ai">AI</option>
+            </select>
+          </div>
+
+          <div class="filter" style="margin-left:auto">
+            <label class="muted">Sort</label>
+            <select id="sortFilter" style="background:transparent;border:none;color:inherit;outline:none">
+              <option value="new">Newest</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="short-hr"></div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="stat">
+          <strong>8.9K</strong>
+          <div class="muted">Monthly readers</div>
+        </div>
+        <div class="stat">
+          <strong>95</strong>
+          <div class="muted">Guides & tutorials</div>
+        </div>
+        <div class="stat pulse">
+          <strong>Weekly</strong>
+          <div class="muted">New deep-dive every week</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="articles" style="margin-top:20px">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px">
+        <h2 style="margin:0">Latest Articles</h2>
+        <div class="muted">(interactive preview)</div>
+      </div>
+
+      <div class="grid" id="cardsGrid"></div>
+
+    </section>
+
+    <footer>
+      Made with ❤️ — <span class="muted">Tech Bloom • Responsive • Accessible</span>
+    </footer>
+
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.35); z-index:40">
+    <div style="width:min(900px,94%); background:var(--card); padding:18px; border-radius:12px">
+      <div style="display:flex; justify-content:space-between; align-items:center">
+        <h3 style="margin:0">Intro — Tech Bloom</h3>
+        <button id="closeModal" class="ghost">Close</button>
+      </div>
+      <div style="margin-top:12px; color:var(--muted)">This is a demo modal — replace with a video or embedded demo.</div>
+    </div>
+  </div>
+
+  <script>
+    const articles = [
+      {id:1, title:'Designing Delightful UX', tags:['frontend','popular'], excerpt:'User-first design patterns and micro-interactions.'},
+      {id:2, title:'API Security Best Practices', tags:['backend','security'], excerpt:'Protect your APIs with modern authentication and monitoring.'},
+      {id:3, title:'Intro to Large Language Models', tags:['ai','popular'], excerpt:'From prompt design to safety considerations.'},
+      {id:4, title:'CSS for Real Layouts', tags:['frontend'], excerpt:'Practical grid and flexbox patterns.'},
+      {id:5, title:'Threat Modeling Made Simple', tags:['security'], excerpt:'A step-by-step approach to reduce risk.'},
+      {id:6, title:'Scaling Databases 101', tags:['backend'], excerpt:'Sharding, replication and index strategies.'}
+    ];
+
+    const grid = document.getElementById('cardsGrid');
+    function renderCards(list){
+      grid.innerHTML = '';
+      list.forEach(a=>{
+        const el = document.createElement('article');
+        el.className = 'card';
+        el.setAttribute('data-id', a.id);
+        el.innerHTML = `
+          <h3>${a.title}</h3>
+          <p style=\"color:var(--muted)\">${a.excerpt}</p>
+          <div class=\"badges\">${a.tags.map(t=>`<span class=\"badge\">${t}</span>`).join('')}<button class=\"btn\" style=\"margin-left:auto\" data-action=\"open\">Read</button></div>
+        `;
+        grid.appendChild(el);
+      });
+    }
+    renderCards(articles);
+
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    function applyFilters(){
+      const q = searchInput.value.trim().toLowerCase();
+      const cat = categoryFilter.value;
+      const filtered = articles.filter(a => {
+        const matchesQ = a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q) || a.tags.join(' ').includes(q);
+        const matchesCat = (cat === 'all') ? true : a.tags.includes(cat);
+        return matchesQ && matchesCat;
+      });
+      renderCards(filtered);
+    }
+    searchInput.addEventListener('input', applyFilters);
+    categoryFilter.addEventListener('change', applyFilters);
+
+    const modal = document.getElementById('modal');
+    const openModalBtn = document.getElementById('openModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    openModalBtn.addEventListener('click', ()=>{ modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); });
+    closeModalBtn.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) { modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }});
+
+    document.addEventListener('click', (e)=>{
+      const target = e.target;
+      if(target.dataset && target.dataset.action === 'open'){
+        const card = target.closest('.card');
+        const id = card && card.getAttribute('data-id');
+        const article = articles.find(a=>String(a.id)===String(id));
+        if(article){
+          alert(article.title + "
+
+" + article.excerpt + "
+
+Tags: " + article.tags.join(', '));
+        }
+      }
+    });
+
+    // Theme toggle simple (light/dark switch with pink-friendly dark)
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', ()=>{
+      const body = document.body;
+      if(body.style.background === 'linear-gradient(180deg, #0f1724, #0b1220)'){
+        body.style.background = '';
+      } else {
+        body.style.background = 'linear-gradient(180deg, #0f1724, #0b1220)';
+        document.querySelectorAll('.card').forEach(c=> c.style.background='linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02))');
+      }
+    });
+
+  </script>
+</body>
+</html>
